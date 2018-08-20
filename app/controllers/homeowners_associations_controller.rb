@@ -1,0 +1,2 @@
+class HomeownersAssociationsController < ApplicationController
+end
