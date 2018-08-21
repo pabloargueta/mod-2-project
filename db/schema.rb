@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2018_08_20_220212) do
   create_table "invoices", force: :cascade do |t|
     t.integer "home_owner_id"
     t.float "total_due"
-    t.date "date_created"
+    t.datetime "date_created"
     t.text "description"
-    t.boolean "paid?"
+    t.boolean "is_paid"
     t.float "total_outstanding"
     t.integer "invoice_category_id"
     t.datetime "created_at", null: false

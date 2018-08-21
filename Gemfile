@@ -5,7 +5,7 @@ ruby '2.3.3'
 
 gem 'faker'
 
-gem 'stripe'
+# gem 'stripe'
 
 gem 'bootstrap'
 gem 'jquery-rails'
