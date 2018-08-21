@@ -3,7 +3,7 @@ class CreateHomes < ActiveRecord::Migration[5.2]
     create_table :homes do |t|
       t.string :address
       t.belongs_to :homeowners_association, foreign_key: true
-      t.real :account_balance
+      t.float :account_balance
       t.string :username
 
       t.timestamps
