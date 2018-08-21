@@ -3,11 +3,11 @@
 one:
   invoice: one
   date_paid: 2018-08-20 17:02:12
-  home: one
+  home_owner: one
   payment_amount: 
 
 two:
   invoice: two
   date_paid: 2018-08-20 17:02:12
-  home: two
+  home_owner: two
   payment_amount: 

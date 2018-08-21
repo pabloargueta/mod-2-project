@@ -1,7 +1,7 @@
 class CreateInvoices < ActiveRecord::Migration[5.2]
   def change
     create_table :invoices do |t|
-      t.belongs_to :home, foreign_key: true
+      t.belongs_to :home_owner, foreign_key: true
       t.float :total_due
       t.date :date_created
       t.text :description

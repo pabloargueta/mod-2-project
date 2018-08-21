@@ -18,25 +18,25 @@ ActiveRecord::Schema.define(version: 2018_08_20_220212) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "homeowners_associations", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "homes", force: :cascade do |t|
+  create_table "home_owners", force: :cascade do |t|
     t.string "address"
     t.integer "homeowners_association_id"
     t.float "account_balance"
     t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["homeowners_association_id"], name: "index_homes_on_homeowners_association_id"
-    t.index ["username"], name: "index_homes_on_username", unique: true
+    t.index ["homeowners_association_id"], name: "index_home_owners_on_homeowners_association_id"
+    t.index ["username"], name: "index_home_owners_on_username", unique: true
+  end
+
+  create_table "homeowners_associations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.integer "home_id"
+    t.integer "home_owner_id"
     t.float "total_due"
     t.date "date_created"
     t.text "description"
@@ -45,18 +45,18 @@ ActiveRecord::Schema.define(version: 2018_08_20_220212) do
     t.integer "invoice_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_invoices_on_home_id"
+    t.index ["home_owner_id"], name: "index_invoices_on_home_owner_id"
     t.index ["invoice_category_id"], name: "index_invoices_on_invoice_category_id"
   end
 
   create_table "payments", force: :cascade do |t|
     t.integer "invoice_id"
     t.datetime "date_paid"
-    t.integer "home_id"
+    t.integer "home_owner_id"
     t.float "payment_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_payments_on_home_id"
+    t.index ["home_owner_id"], name: "index_payments_on_home_owner_id"
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
   end
 
