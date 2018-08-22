@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: "registrations" }
   # get 'main/home'
   # get 'main/about'
   # get 'main/signup'
@@ -10,8 +11,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
+  root to: 'main#home'
 
-  get "/", to: "main#home", as: "/"
+  get "/sign_in", to:  "main#login"
+  # get "/", to: "main#home", as: "/"
   get "/about", to: "main#about", as: "/about"
-  get "/signup", to: "main#signup", as: "/signup"
+  get "/sign_up", to: "registrations#new"
 end
