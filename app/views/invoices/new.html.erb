@@ -1,0 +1,11 @@
+<h1>Create A New Invoice</h1>
+
+<%= form_with model: @invoice do |f| %>
+
+  <%= f.collection_select :home_owner_id, @home_owners, :id, :address %>
+  <%= f.collection_select :category_id, @categories, :id, :name %>
+  <%= f.number_field :total_due, :step => 0.01 %>
+  <%= f.text_area :description %>
+ 
+  <%= f.submit %>
+<% end %>

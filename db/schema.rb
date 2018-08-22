@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_220212) do
+ActiveRecord::Schema.define(version: 2018_08_22_013410) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "home_owners", force: :cascade do |t|
+    t.string "address"
+    t.integer "homeowners_association_id"
+    t.float "account_balance"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["homeowners_association_id"], name: "index_home_owners_on_homeowners_association_id"
+    t.index ["username"], name: "index_home_owners_on_username", unique: true
   end
 
   create_table "homeowners_associations", force: :cascade do |t|
@@ -24,40 +35,43 @@ ActiveRecord::Schema.define(version: 2018_08_20_220212) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "homes", force: :cascade do |t|
-    t.string "address"
-    t.integer "homeowners_association_id"
-    t.float "account_balance"
-    t.string "username"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["homeowners_association_id"], name: "index_homes_on_homeowners_association_id"
-    t.index ["username"], name: "index_homes_on_username", unique: true
-  end
-
   create_table "invoices", force: :cascade do |t|
-    t.integer "home_id"
+    t.integer "home_owner_id"
     t.float "total_due"
-    t.date "date_created"
+    t.datetime "date_created"
     t.text "description"
-    t.boolean "paid?"
+    t.boolean "is_paid"
     t.float "total_outstanding"
     t.integer "invoice_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_invoices_on_home_id"
+    t.index ["home_owner_id"], name: "index_invoices_on_home_owner_id"
     t.index ["invoice_category_id"], name: "index_invoices_on_invoice_category_id"
   end
 
   create_table "payments", force: :cascade do |t|
     t.integer "invoice_id"
     t.datetime "date_paid"
-    t.integer "home_id"
+    t.integer "home_owner_id"
     t.float "payment_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["home_id"], name: "index_payments_on_home_id"
+    t.index ["home_owner_id"], name: "index_payments_on_home_owner_id"
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
