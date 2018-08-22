@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :payments
   has_many :invoices
   has_many :invoice_categories, through: :invoices
+  
+  
+  
 end

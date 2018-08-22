@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :load_user
 
-  def home
-    @user = current_user  
+  def home  
   end
   
   def new
