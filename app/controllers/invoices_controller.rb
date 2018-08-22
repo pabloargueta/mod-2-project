@@ -5,13 +5,12 @@ class InvoicesController < ApplicationController
     @homeowners_associations = HomeownersAssociation.all
     # ^^ ALSO NEED TO FILTER HOMEOWNERS BASED ON SELF (HOA)
 
-    @home_owners = HomeOwner.all
+    @users = User.all
     @categories = Category.all
     # Need to add category
   end
 
   def create
-    byebug
     @invoice = Invoice.new(invoice_params)
     @invoice.date_created = Time.now
     @invoice.is_paid = false
@@ -30,7 +29,7 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_params
-    params.require(:invoice).permit(:home_owner_id, :total_due, :description)
+    params.require(:invoice).permit(:user_id, :total_due, :description)
   end
 
 end
