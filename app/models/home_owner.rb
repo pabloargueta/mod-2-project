@@ -3,4 +3,5 @@ class HomeOwner < ApplicationRecord
   has_many :payments
   has_many :invoices
   has_many :invoice_categories, through: :invoices
+  has_many :users
 end

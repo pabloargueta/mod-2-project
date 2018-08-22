@@ -2,6 +2,10 @@ class HomeOwnersController < ApplicationController
   before_action :authenticate_user!
   before_action :load_homeowner
 
+  def home
+    @user = current_user  
+  end
+  
   def new
     @homeowners_associations = HomeownersAssociation.all
   end
