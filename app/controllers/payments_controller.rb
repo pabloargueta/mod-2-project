@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
   def create
     payment = Payment.new(payment_params)
     payment.date_paid = Time.now
-    payment.home_owner_id = "Test" #NEED TO UPDATE FOR SELF
+    payment.user_id = "Test" #NEED TO UPDATE FOR SELF
 
     invoice = payment.invoice
     invoice.update_all_invoice_info

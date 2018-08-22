@@ -3,7 +3,7 @@ class CreatePayments < ActiveRecord::Migration[5.2]
     create_table :payments do |t|
       t.belongs_to :invoice, foreign_key: true
       t.datetime :date_paid
-      t.belongs_to :home_owner, foreign_key: true
+      t.belongs_to :users, foreign_key: true
       t.float :payment_amount
 
       t.timestamps
