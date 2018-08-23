@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     if current_user.is_admin
        admin_users_path
     else
-       user_path
+       users_path(current_user)
     end
   end
 end

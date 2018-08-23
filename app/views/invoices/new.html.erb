@@ -1,11 +1,1 @@
-<h1>Create A New Invoice</h1>
-
-<%= form_with model: @invoice do |f| %>
-
-  <%= f.collection_select :user_id, @users, :id, :email %>
-  <%= f.collection_select :category_id, @categories, :id, :name %>
-  <%= f.number_field :total_due, :step => 0.01 %>
-  <%= f.text_area :description %>
- 
-  <%= f.submit %>
-<% end %>
+<h1>Note: User should not have access to this page!</h1>

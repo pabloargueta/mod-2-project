@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_many :invoices
   has_many :invoice_categories, through: :invoices
   
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
   
-  
+  def hoa 
+    self.homeowners_association
+  end
 end

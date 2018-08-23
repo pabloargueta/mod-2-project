@@ -1,10 +1,12 @@
 <h1>Make A Payment:</h1>
 
 <%= form_with model: @payment do |f| %>
-  <%= f.label "Which Invoice Would You Like To Pay?" %>
-  <%= f.select :invoice_id, @invoices_list.map {|invoice| [invoice.name, invoice.id]} %>
+  <%= f.label "Which Invoice Would You Like To Pay?" %><br>
+  <%= f.select :invoice_id, @invoices_list.map {|invoice| [invoice.title, invoice.id]} %><br>
 
-  <%=  f.number_field :payment_amount %>
+  <%=  f.number_field :payment_amount, placeholder: "Amount to Pay" %><br>
+
+  <br>
 
   <%= f.submit %>
 <% end %>

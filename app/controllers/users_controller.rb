@@ -11,12 +11,9 @@ class UsersController < ApplicationController
   private
 
   def load_user
-
-    if params[:id] != "sign_out"
-      @user = User.find(params[:id])
-    elsif session[:id]
+    if session[:id]
       @user = User.find(sesion[:id])
-    elsif params[:id] = "sign_out"
+    elsif params[:id] == "sign_out"
       sign_out current_user
       redirect_to '/'
     else
