@@ -1,8 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def new
-    super
     @homeowners_associations = HomeownersAssociation.all
+    super
+   
   end
 
   private

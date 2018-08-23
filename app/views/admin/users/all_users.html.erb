@@ -1,0 +1,23 @@
+<h1>all users page</h1>
+
+
+
+
+
+
+<% if @users %>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.first_name %></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+  <%= form_tag 'all_users', :method => :get, :class => 'form-search' do %>
+ <div class="input-append">
+  <%= collection_select :homeowners_association, :id, HomeownersAssociation.all, :id, :name %>
+  <button type="submit" class="btn">Search</button>
+ </div>
+<% end %>
+
+<% end %>

@@ -12,9 +12,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+    # get '/all_users'
   end
 
   root to: 'main#home'
+
+  get '/admin/all_users', to: 'admin/users#all_users'
 
   get '/home', to: 'user#home'
   get "/sign_in", to: "main#login"

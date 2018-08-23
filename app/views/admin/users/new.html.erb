@@ -1,0 +1,56 @@
+
+<%# moving this from users/new to admin/users/new since we moved the controller action %>
+
+
+<h1>Add Homeowner</h1>
+
+
+<%= form_with model: @user do |f| %>
+
+
+<%= f.label "Choose your Homeowners Association:" %>
+<br>
+<%= f.collection_select :homeowners_association_id, @homeowners_associations, :id, :name %>
+<br>
+<br>
+  <p>Enter your information below </P>
+  <%# <%= f.text_field :address, placeholder: :address %>
+  <%# <br> %>
+  <%= f.label :first_name%>
+  <%= f.text_field :first_name, placeholder: :first_name %> 
+  <br>
+
+  <%= f.label :last_name%> 
+  <%= f.text_field :last_name, placeholder: :last_name %> 
+  <br> 
+
+  <%= f.label :street%>
+  <%= f.text_field :street, placeholder: :street %>  
+  <br>
+
+  <%= f.label :city%>
+  <%= f.text_field :city, placeholder: :city %> 
+  <br> 
+
+  <%= f.label :state%>
+  <%= f.text_field :state, placeholder: :state %>
+  <br>
+
+  <%= f.label :zip%>
+  <%= f.text_field :zip, placeholder: :zip %>
+  <br>
+
+
+  <%= f.label :email%>
+  <%= f.text_field :email, placeholder: :email %>
+  <br>
+
+  <%= f.label :password%>
+  <%= f.text_field :password, placeholder: :password %>
+  <br>
+  <br>
+
+  <%= f.submit "Submit"%>
+
+
+<% end %>
