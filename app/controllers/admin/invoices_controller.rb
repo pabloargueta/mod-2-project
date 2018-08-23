@@ -1,2 +1,2 @@
-class InvoicesController < Admin::ApplicationController
+class Admin::InvoicesController < Admin::ApplicationController
 end

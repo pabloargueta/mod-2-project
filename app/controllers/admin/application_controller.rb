@@ -2,9 +2,9 @@ class Admin::ApplicationController < ApplicationController
   before_action :admin_verification
 
   def admin_verification
-    unless current_user.is_admin
+    unless current_user && current_user.is_admin
       # note: need to add "no permissions to access"
-      redirect_to 'users/home'
+      redirect_to home_path
     end
   end
 end

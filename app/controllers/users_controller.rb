@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :load_user
 
-  def home
+  def index
   end
-
 
   def show
   end

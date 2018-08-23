@@ -1,7 +1,7 @@
-class UsersController < Admin::ApplicationController
+class Admin::UsersController < Admin::ApplicationController
   before_action :load_user
 
-  def home
+  def index
   end
 
   def new
