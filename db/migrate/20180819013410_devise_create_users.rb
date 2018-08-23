@@ -7,8 +7,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       #former home_owner info
       t.belongs_to :homeowners_association, foreign_key: true
       t.float :account_balance
-      
-    
+
+
       #added User info
       t.string :first_name
       t.string :last_name
@@ -16,6 +16,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.string :zip
+      t.boolean :is_admin
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -55,6 +56,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
 
-  
+
   end
 end

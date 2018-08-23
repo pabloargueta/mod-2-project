@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   resources :homeowners_associations
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  namespace :admin do
+    resources :users
+  end
 
   root to: 'main#home'
-  
-  get '/home', to: 'user#home'
 
+  get '/home', to: 'user#home'
   get "/sign_in", to: "main#login"
   # get "/", to: "main#home", as: "/"
   get "/about", to: "main#about", as: "/about"

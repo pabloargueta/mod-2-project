@@ -19,10 +19,24 @@ Category.create(name: "Monthly Dues")
 Category.create(name: "Late Fees")
 Category.create(name: "Interest")
 
-5.times {
-  
-  User.create(first_name: Faker::GameOfThrones.character.split(' ')[0], last_name: Faker::GameOfThrones.character.split(' ')[1..-1].join(' '), street: Faker::Address.street_name, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, email: Faker::Internet.email, homeowners_association: got, account_balance: 0.00, password: "password")
-  
-  User.create(first_name: Faker::BreakingBad.character.split(' ')[0], last_name: Faker::BreakingBad.character.split(' ')[1..-1].join(' '), street: Faker::Address.street_name, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, email: Faker::Internet.email, homeowners_association: bbh, account_balance: 0.00, password: "password")
-}
 
+User.create({
+  first_name: "Pablo",
+  last_name: "Stephens",
+  street: "880 Main Street",
+  city: "Houston",
+  state: "TX",
+  zip: "77001",
+  email: "test@test.com",
+  homeowners_association: got,
+  account_balance: 0.00,
+  password: "admin123",
+  is_admin: true
+})
+
+5.times {
+
+  User.create(first_name: Faker::GameOfThrones.character.split(' ')[0], last_name: Faker::GameOfThrones.character.split(' ')[1..-1].join(' '), street: Faker::Address.street_name, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, email: Faker::Internet.email, homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
+
+  User.create(first_name: Faker::BreakingBad.character.split(' ')[0], last_name: Faker::BreakingBad.character.split(' ')[1..-1].join(' '), street: Faker::Address.street_name, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, email: Faker::Internet.email, homeowners_association: bbh, account_balance: 0.00, password: "password", is_admin: false)
+}

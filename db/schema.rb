@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_220212) do
     t.string "city"
     t.string "state"
     t.string "zip"
+    t.boolean "is_admin"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
