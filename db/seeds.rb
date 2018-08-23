@@ -27,30 +27,29 @@ User.create({
   city: "Houston",
   state: "TX",
   zip: "77001",
-  email: "test@test.com",
+  email: "admin@admin.com",
   homeowners_association: got,
   account_balance: 0.00,
-  password: "admin123",
+  password: "password",
   is_admin: true
 })
 
-User.create({
-  first_name: "testfirst",
-  last_name: "testlast",
-  street: "111 Main Street",
-  city: "Houston",
-  state: "TX",
-  zip: "77002",
-  email: "testuser@test.com",
-  homeowners_association: got,
-  account_balance: 0.00,
-  password: "user123",
-  is_admin: false
-})
+# Game of Thrones Users
+User.create(first_name: "Daenerys", last_name: "Targaryen", street: "3664 Inverness Dr.", city: "Houston", state: "TX", zip: "77019", email: "d.targaryen@gmail.com", homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
+
+User.create(first_name: "Jon", last_name: "Snow", street: "3600 Inverness Dr.", city: "Houston", state: "TX", zip: "77019", email: "j.snow@gmail.com", homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
+
+User.create(first_name: "Rob", last_name: "Stark", street: "3601 Inverness Dr.", city: "Houston", state: "TX", zip: "77019", email: "r.stark@gmail.com", homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
+
+User.create(first_name: "Cersei", last_name: "Lannister", street: "3617 Inverness Dr.", city: "Houston", state: "TX", zip: "77019", email: "c.lannister@gmail.com", homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
+
+User.create(first_name: "Tyrion", last_name: "Lannister", street: "3620 Inverness Dr.", city: "Houston", state: "TX", zip: "77019", email: "t.lannister@gmail.com", homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
+
+User.create(first_name: "Arya", last_name: "Stark", street: "3629 Inverness Dr.", city: "Houston", state: "TX", zip: "77019", email: "a.stark@gmail.com", homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
+
+User.create(first_name: "Hodor", last_name: "Wylis", street: "3632 Inverness Dr.", city: "Houston", state: "TX", zip: "77019", email: "h.hodor@gmail.com", homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
 
 4.times {
-
-  User.create(first_name: Faker::GameOfThrones.character.split(' ')[0], last_name: Faker::GameOfThrones.character.split(' ')[1..-1].join(' '), street: Faker::Address.street_name, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, email: Faker::Internet.email, homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
 
   User.create(first_name: Faker::BreakingBad.character.split(' ')[0], last_name: Faker::BreakingBad.character.split(' ')[1..-1].join(' '), street: Faker::Address.street_name, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, email: Faker::Internet.email, homeowners_association: bbh, account_balance: 0.00, password: "password", is_admin: false)
 }
