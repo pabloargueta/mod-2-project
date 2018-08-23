@@ -5,8 +5,8 @@
          <div class="mx-auto text-center">
            <h1 class="mx-auto my-0 text-uppercase">FAVStreet</h1>
            <h2 class="text-white-50 mx-auto mt-2 mb-5">A new way to Manage your Association</h2>
-           <a href=<%= new_user_session_path %> class="btn btn-primary js-scroll-trigger">Sign In</a>
-            <a href=<%= new_user_registration_path %> class="btn btn-primary js-scroll-trigger">Sign Up</a>
+           <a href='/sign_in' class="btn btn-primary js-scroll-trigger">Sign In</a>
+            <a href='/sign_up' class="btn btn-primary js-scroll-trigger">Sign Up</a>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"btn btn-primary js-scroll-trigger" %>
          </div>
        </div>

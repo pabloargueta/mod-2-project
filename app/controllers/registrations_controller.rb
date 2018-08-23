@@ -1,13 +1,17 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def new
+    super
+    @homeowners_associations = HomeownersAssociation.all
+  end
+
   private
 
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :homeowners_association_id)
   end
 
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :homeowners_association_id)
   end
-
 end

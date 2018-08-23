@@ -1,0 +1,11 @@
+<section>
+  <div class="container">
+    <%= current_user.first_name %>
+
+    <ul>
+      <li><%= link_to "Pay Bills", new_payment_path %></li>
+      <li><%= link_to "Account Information", current_user %></li>
+      <li><%= "News" %></li>
+    </ul>
+  </div>
+</section>
