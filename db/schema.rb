@@ -25,28 +25,28 @@ ActiveRecord::Schema.define(version: 2018_08_20_220212) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.integer "users_id"
+    t.integer "user_id"
     t.float "total_due"
     t.datetime "date_created"
     t.text "description"
     t.boolean "is_paid"
     t.float "total_outstanding"
-    t.integer "invoice_category_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["invoice_category_id"], name: "index_invoices_on_invoice_category_id"
-    t.index ["users_id"], name: "index_invoices_on_users_id"
+    t.index ["category_id"], name: "index_invoices_on_category_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
     t.integer "invoice_id"
     t.datetime "date_paid"
-    t.integer "users_id"
+    t.integer "user_id"
     t.float "payment_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
-    t.index ["users_id"], name: "index_payments_on_users_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

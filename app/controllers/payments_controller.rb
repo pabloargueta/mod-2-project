@@ -3,19 +3,19 @@ class PaymentsController < ApplicationController
   before_action :load_payments
 
   def new
-    @invoices_list = Invoice.all
-    # ^ filter invoices where user.id = session_user.id
+    @invoices_list = Invoice.all.select{|invoice| invoice.user == current_user}
   end
 
   def create
     payment = Payment.new(payment_params)
     payment.date_paid = Time.now
-    payment.user_id = "Test" #NEED TO UPDATE FOR SELF
+    payment.user = current_user
 
-    invoice = payment.invoice
-    invoice.update_all_invoice_info
+    payment.invoice.update_all_invoice_info(payment.payment_amount)
 
     payment.save
+    
+    redirect_to users_path(current_user)
   end
 
   private
@@ -29,6 +29,6 @@ class PaymentsController < ApplicationController
   end
 
   def payment_params
-    require(:payment).permit(:invoice_id)
+    params.require(:payment).permit(:payment_amount, :invoice_id)
   end
 end
