@@ -2,6 +2,8 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_payments
 
+  self
+
   def new
     @invoices_list = Invoice.all.select{|invoice| invoice.user == current_user}
   end
@@ -14,7 +16,7 @@ class PaymentsController < ApplicationController
     payment.invoice.update_all_invoice_info(payment.payment_amount)
 
     payment.save
-    
+
     redirect_to users_path(current_user)
   end
 

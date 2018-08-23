@@ -1,6 +1,9 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :load_user, only: [:create]
 
+  
+  
+
   def index
   end
 
