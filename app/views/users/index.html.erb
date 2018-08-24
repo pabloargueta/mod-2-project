@@ -2,6 +2,10 @@
   <div class="container">
     <%= current_user.first_name %>
 
+    <br>
+    
+    <%= image_tag(current_user.profile_picture) %>
+
     <ul>
       <li><%= link_to "Pay Bills", new_payment_path %></li>
       <li><%= link_to "Account Information", current_user %></li>
