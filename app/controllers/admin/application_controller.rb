@@ -9,4 +9,7 @@ class Admin::ApplicationController < ApplicationController
       redirect_to home_path
     end
   end
+
+  def index
+  end
 end

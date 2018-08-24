@@ -1,1 +1,10 @@
 <h1>Invoice Info:</h1>
+<ul>
+  <li>Homeowner: <%= @invoice.user.full_name %></li>
+  <li>Date Created: <%= @invoice.formatted_created_date %></li>
+  <li>Total Due: <%= @invoice.total_due %></li>
+  <li>Total Paid: <%= @invoice.total_paid %></li>
+  <li>Total Outstanding: <%= @invoice.total_outstanding %></li>
+  <li>Category: <%= @invoice.category.name %></li>
+  <li>Description: <%= @invoice.description %></li>
+</ul>

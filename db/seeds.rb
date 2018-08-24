@@ -23,21 +23,36 @@ fees= Category.create(name: "Late Fees")
 interest = Category.create(name: "Interest")
 
 
-# Admin User
+# Admin Users
 
-admin = User.create({
+got_admin = User.create({
   first_name: "Pablo",
   last_name: "Stephens",
   street: "880 Main Street",
   city: "Houston",
   state: "TX",
   zip: "77001",
-  email: "admin@admin.com",
+  email: "admin@got.com",
   homeowners_association: got,
   account_balance: 0.00,
   password: "password",
   is_admin: true
 })
+
+ww_admin = User.create({
+  first_name: "Stephen",
+  last_name: "Little",
+  street: "880 Main Street",
+  city: "Houston",
+  state: "TX",
+  zip: "77001",
+  email: "admin@ww.com",
+  homeowners_association: wwh,
+  account_balance: 0.00,
+  password: "password",
+  is_admin: true
+})
+
 
 # Game of Thrones Users
 daenerys = User.create(first_name: "Daenerys", last_name: "Targaryen", street: "3664 Inverness Dr.", city: "Houston", state: "TX", zip: "77019", email: "d.targaryen@gmail.com", homeowners_association: got, account_balance: 0.00, password: "password", is_admin: false)
@@ -72,7 +87,8 @@ maeve = User.create(first_name: "Maeve", last_name: "Millay", street: "25 Greyto
 
 
 # Game of Thrones Profile Picture Links
-admin.attach_image('https://avatars3.githubusercontent.com/u/29463210?s=460&v=4')
+got_admin.attach_image('https://avatars3.githubusercontent.com/u/29463210?s=460&v=4')
+ww_admin.attach_image('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png')
 daenerys.attach_image('http://assets.viewers-guide.hbo.com/larges3-ep1-people-profilepic-targaryen-daenerys-800x800.jpg')
 jon.attach_image('https://i.stack.imgur.com/6Zr5C.jpg')
 rob.attach_image('https://pbs.twimg.com/profile_images/473391556276142080/BHC-ZgfF_400x400.jpeg')
@@ -99,11 +115,11 @@ maeve.attach_image('https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F
   fee_amount = rand(50.00)
   interest_amount = rand(5.00)
 
-  Invoice.create(user: User.all[rand(User.all.count)+1], total_due: due_amount, date_created: Time.now - rand(86400*date_range), description: "This is a seed charge", is_paid: false, total_outstanding: due_amount, category: dues)
+  Invoice.create_invoice(user: User.all[[rand(User.all.count)-1,1].max], total_due: due_amount, created_at: Time.now - rand(86400*date_range), description: "This is a seed charge", is_paid: false, total_outstanding: due_amount, category: dues)
 
-  Invoice.create(user: User.all[rand(User.all.count)+1], total_due: fee_amount, date_created: Time.now - rand(86400*date_range), description: "This is a seed charge", is_paid: false, total_outstanding: fee_amount, category: fees)
+  Invoice.create_invoice(user: User.all[[rand(User.all.count)-1,1].max], total_due: fee_amount, created_at: Time.now - rand(86400*date_range), description: "This is a seed charge", is_paid: false, total_outstanding: fee_amount, category: fees)
 
-  Invoice.create(user: User.all[rand(User.all.count)+1], total_due: interest_amount, date_created: Time.now - rand(86400*date_range), description: "This is a seed charge", is_paid: false, total_outstanding: interest_amount, category: interest)
+  Invoice.create_invoice(user: User.all[[rand(User.all.count)-1,1].max], total_due: interest_amount, created_at: Time.now - rand(86400*date_range), description: "This is a seed charge", is_paid: false, total_outstanding: interest_amount, category: interest)
 }
 ## Random Payment Data
 
@@ -111,8 +127,8 @@ maeve.attach_image('https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F
 
   unpaid_invoices = Invoice.all.select {|invoice| !invoice.is_paid}
   paid_invoice = unpaid_invoices[rand(unpaid_invoices.length-1)]
-  paid_date = [paid_invoice.date_created + rand(86400 * 100), Time.now].min
+  paid_date = [paid_invoice.created_at + rand(86400 * 100), Time.now].min
   paid_amount = rand(0.1..1.1) * paid_invoice.total_due
 
-  Payment.create(invoice: paid_invoice, date_paid: paid_date, user: paid_invoice.user, payment_amount: paid_amount)
+  Payment.create_payment(invoice: paid_invoice, created_at: paid_date, payment_amount: paid_amount)
 }

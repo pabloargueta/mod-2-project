@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     elsif params[:id] == "sign_out"
       sign_out current_user
       redirect_to '/'
+      #note: need to fix above route
     else
       @user = User.new
     end
