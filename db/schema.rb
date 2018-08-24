@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2018_08_24_013222) do
 
   create_table "homeowners_associations", force: :cascade do |t|
     t.string "name"
+    t.integer "total_owed"
+    t.integer "total_paid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

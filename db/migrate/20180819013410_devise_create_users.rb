@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
 
       #former home_owner info
-      t.belongs_to :homeowners_association, foreign_key: true
+      t.belongs_to :homeowners_association
       t.float :account_balance
 
 

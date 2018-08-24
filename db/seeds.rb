@@ -14,8 +14,8 @@ User.destroy_all
 Invoice.destroy_all
 Payment.destroy_all
 
-got = HomeownersAssociation.create(name: "Game of Thrones Hood")
-wwh = HomeownersAssociation.create(name: "Westworld Heights")
+got = HomeownersAssociation.create(name: "Game of Thrones Hood", total_owed: 0, total_paid: 0)
+wwh = HomeownersAssociation.create(name: "Westworld Heights", total_owed: 0, total_paid: 0)
 
 
 dues = Category.create(name: "Monthly Dues")
@@ -132,3 +132,20 @@ maeve.attach_image('https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F
 
   Payment.create_payment(invoice: paid_invoice, created_at: paid_date, payment_amount: paid_amount)
 }
+
+# User Post Data
+Post.create(user: daenerys, text: "Hosting a roast this weekend - any Lannisters interested in attending?!", created_at: Time.now - rand(86400) * 3)
+Post.create(user: jon, text: "Watched some Arrested Development the other day. George Michael kissing his cousin was disgusting!!", created_at: Time.now - rand(86400) * 3)
+Post.create(user: rob, text: "SO excited to be getting married this weekend, everyone's invited! It's going to be bloody awesome!!! :)", created_at: Time.now - rand(86400))
+Post.create(user: cersei, text: "We MUST have strong borders and stop illegal Dothraki immigration. Without that we do not have a country. Also, the Iron Bank is killing Westeros on trade. WIN!", created_at: Time.now - rand(86400) * 3)
+Post.create(user: tyrion, text: "Six Flag's minimum height policy is an absolute travesty. PS - Who wants to get drunk??", created_at: Time.now - rand(86400) * 3)
+Post.create(user: arya, text: "OMG, I just saw the Japanese manga series, Death Note, and it was amazinggg. Would be super cool power for anyone with a list or something.", created_at: Time.now - rand(86400) * 3)
+Post.create(user: hodor, text: "HODOR!!!!!", created_at: Time.now - rand(86400) * 3)
+
+Post.create(user: dolores, text: "Who else saw Split with James McAvoy?! Living like that would be CRAZY", created_at: Time.now - rand(86400) * 3)
+Post.create(user: elsie, text: "Just wanted to take some time to express my thanks to my boss, Bernard. He's the best!!", created_at: Time.now - rand(86400) * 3)
+Post.create(user: bernard, text: "I think I must be really hungover or something. Don't remember last night lol. Also I can't find Theresa, please call if anyone knows where she is!", created_at: Time.now - rand(86400) * 3)
+Post.create(user: robert, text: "All good things must come to an end...", created_at: Time.now - rand(86400) * 3)
+Post.create(user: william, text: "Do you guys think black hat cowboys really wore like all black hats?! Asking for a friend.", created_at: Time.now - rand(86400) * 3)
+Post.create(user: logan, text: "Pumped to be going with my future brother-in-law on his bachelor party next week! Gonna be crazy!!", created_at: Time.now - rand(86400) * 3)
+Post.create(user: maeve, text: "Sick of this domestic life. Time to write my own f*#@ing story..", created_at: Time.now - rand(86400) * 3)

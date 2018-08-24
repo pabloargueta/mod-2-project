@@ -7,6 +7,9 @@ gem 'devise'
 
 gem 'faker'
 
+gem 'chartkick'
+gem 'groupdate'
+
 # gem 'stripe'
 
 gem 'bootstrap'

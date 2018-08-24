@@ -3,6 +3,10 @@ class HomeownersAssociation < ApplicationRecord
   has_many :invoices, through: :users
   has_many :payments, through: :users
 
+  def total_outstanding
+    self.total_owed - self.total_paid
+  end
+  
   def total_owed_by_all_hoa_users
     # Invoice.all.reduce(0) do |total, current_invoice|
     #   byebug
