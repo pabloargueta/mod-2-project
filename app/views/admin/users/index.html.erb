@@ -1,9 +1,10 @@
 <h1>Welcome to Admin Console</h1>
 <ul>
   <li><%= link_to "Add a Homeowner",  new_admin_user_path %></li>
-  <li> <%= link_to "View Homeowners",  'all_users' %></li>
-  <li> <%= link_to "Create Invoice", 'invoices/new' %></li>
+  <li> <%= link_to "View Homeowners",  admin_all_users_path %></li>
+  <li> <%= link_to "Create Invoice", new_admin_invoice_path %></li>
   <li> Total Amount Owed: <%= current_user.hoa.total_owed_by_all_hoa_users %></li>
     <li> Total Amount Outstanding: <%= current_user.hoa.total_outstanding_by_all_hoa_users %></li>
   <li> Total Amount Paid: <%= current_user.hoa.total_paid_by_all_hoa_users %></li>
 </ul>
+<% #note: note sure if this page goes here. ask josh where defaul page should go %>

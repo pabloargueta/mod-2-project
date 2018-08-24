@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2018_08_24_013222) do
   create_table "invoices", force: :cascade do |t|
     t.integer "user_id"
     t.float "total_due"
-    t.datetime "date_created"
     t.text "description"
     t.boolean "is_paid"
     t.float "total_outstanding"
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 2018_08_24_013222) do
 
   create_table "payments", force: :cascade do |t|
     t.integer "invoice_id"
-    t.datetime "date_paid"
     t.integer "user_id"
     t.float "payment_amount"
     t.datetime "created_at", null: false

@@ -1,0 +1,13 @@
+<h1>Account Info:</h1>
+
+<%= image_tag(@user.profile_picture) %>
+
+<ul>
+  <li>First Name: <%= @user.first_name %></li>
+  <li>Last Name: <%= @user.last_name %></li>
+  <li>Address:
+    <ul>
+      <li><%= @user.street %></li>
+      <li><%= @user.city %>, <%= current_user.state %> <%= current_user.zip %></li>
+  </ul>
+</ul>

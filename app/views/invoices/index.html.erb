@@ -1,1 +1,15 @@
-<h1>All Non-Admin Invoices here</h1>
+<h1>Invoice History</h1>
+
+<h3>Unpaid Invoices:</h3>
+<ul>
+  <% @unpaid_invoices.each do |invoice| %>
+    <li><%= link_to invoice.title, invoice %></li>
+  <% end %>
+</ul>
+
+<h3>Paid Invoices:</h3>
+<ul>
+  <% @paid_invoices.each do |invoice| %>
+    <li><%= link_to invoice.title, invoice %></li>
+  <% end %>
+</ul>

@@ -1,14 +1,14 @@
 <h1>Create A New Invoice</h1>
 
-<%= form_with model: @invoice do |f| %>
+<%= form_with model: @invoice, url: admin_invoices_path do |f| %>
 
   <%= f.label "Homeowner" %><br>
   <%= f.collection_select :user_id, @users, :id, :email %><br>
-  <%= f.collection_select :index_invoices_on_invoice_category_id, @categories, :id, :name %><br>
+  <%= f.collection_select :category_id, @categories, :id, :name %><br>
   <%= f.number_field :total_due, :step => 0.01, placeholder: "Invoice Total" %><br>
   <%= f.text_area :description, placeholder: "Invoice Description" %><br>
- 
+
  <br>
- 
+
   <%= f.submit %>
 <% end %>

@@ -3,7 +3,7 @@
 <%= form_with model: @payment do |f| %>
   <%= f.label "Which Invoice Would You Like To Pay?" %><br>
   <%= f.select :invoice_id, @invoices_list.map {|invoice| [invoice.title, invoice.id]} %><br>
-
+  <% #note for josh: this is an expensive query call %>
   <%=  f.number_field :payment_amount, placeholder: "Amount to Pay" %><br>
 
   <br>

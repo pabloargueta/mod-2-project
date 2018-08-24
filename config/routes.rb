@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   # get "/", to: "main#home", as: "/"
   get "/about", to: "main#about", as: "/about"
   get "/sign_up", to: "registrations#new"
-
+  #note: need to fix above route
 end
