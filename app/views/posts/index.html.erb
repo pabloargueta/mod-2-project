@@ -9,7 +9,7 @@
   
   <% @posts.each do |post| %>
     <tr>
-      <td><img src=<%= post.user.profile_picture %> class="img-thumbnail"</td>
+      <td>  <%= image_tag(post.user.profile_picture, size: "50x50") %></td>
       <td><%= link_to post.user.full_name, post.user %></td>
       <td> <%= post.formatted_created_date %></td>
       <td><%= post.text %></td>

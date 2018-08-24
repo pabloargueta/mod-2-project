@@ -1,13 +1,13 @@
 <h1>Account Info:</h1>
 
-<%= image_tag(current_user.profile_picture) %>
+<%= image_tag(@user.profile_picture) %>
 
 <ul>
-  <li>First Name: <%= current_user.first_name %></li>
-  <li>Last Name: <%= current_user.last_name %></li>
+  <li>First Name: <%= @user.first_name %></li>
+  <li>Last Name: <%= @user.last_name %></li>
   <li>Address:
     <ul>
-      <li><%= current_user.street %></li>
-      <li><%= current_user.city %>, <%= current_user.state %> <%= current_user.zip %></li>
+      <li><%= @user.street %></li>
+      <li><%= @user.city %>, <%= @user.state %> <%= @user.zip %></li>
   </ul>
 </ul>

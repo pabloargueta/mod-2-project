@@ -12,6 +12,12 @@
   <li> Total Amount Paid: <%= current_user.hoa.total_paid %></li>
 </ul>
 
-<%= column_chart Invoice.group_by_day(:created_at).count %>
+<br>
+
+<h3>Invoices Owed by Month:</h3>
+<%= column_chart Invoice.group_by_month(:created_at).sum(:total_due) %>
+
+<h3>Invoices Paid by Month:</h3>
+<%= column_chart Payment.group_by_month(:created_at).sum(:payment_amount) %>
 
 <% #note: note sure if this page goes here. ask josh where defaul page should go %>
