@@ -1,11 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_user!, :redirect_unless_admin, only: [:new, :create]
-  skip_before_action :require_no_athentication
+  skip_before_action :require_no_authentication
 
   def new
     @homeowners_associations = HomeownersAssociation.all
     super
-   
+
   end
 
 

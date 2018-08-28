@@ -9,7 +9,7 @@ class Invoice < ApplicationRecord
     self.update_hoa_balance(payment_amount)
 
     if payment_amount >= self.total_outstanding
-      self.is_paid = true
+      self.update(is_paid: true)
     end
   end
 
@@ -17,7 +17,7 @@ class Invoice < ApplicationRecord
     balance = self.user.account_balance += payment_amount
     self.user.update(account_balance: balance)
   end
-  
+
   def update_hoa_balance(payment_amount)
     balance = self.user.hoa.total_paid += payment_amount
     self.user.hoa.update(total_paid: balance)
@@ -37,7 +37,7 @@ class Invoice < ApplicationRecord
   # note: ask josh how would refactor formatted_date to all classes. similar method in post model
 
   def total_paid
-    self.total_owed - self.total_outstanding
+    self.total_due - self.total_outstanding
   end
 
   def self.create_invoice(params)

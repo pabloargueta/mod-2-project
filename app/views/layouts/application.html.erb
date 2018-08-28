@@ -18,6 +18,7 @@
     <% if user_signed_in? %>
       <p>Welcome, <%= current_user.first_name %></p>
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <!-- #ask josh logout not working -->
     <% end %>
   </head>
   <body>
@@ -29,13 +30,11 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        
+
         <% end %>
-        
+
 
     <%= yield %>
 
   </body>
 </html>
-
-

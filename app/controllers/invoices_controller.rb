@@ -5,6 +5,7 @@ class InvoicesController < ApplicationController
 
   def index
     all_invoices = Invoice.where(user: current_user).order("created_at")
+  
     @paid_invoices = all_invoices.select {|invoice| invoice.is_paid}
     @unpaid_invoices = all_invoices - @paid_invoices
   end

@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
        users_path(current_user)
     end
   end
+
+  def handle_unverified_request
+    flash[:error] = "Kindly retry."
+    redirect_to :new_user_session
+  end
 end
